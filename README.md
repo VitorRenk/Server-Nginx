@@ -23,6 +23,11 @@ Após isso, é importante atualizar o WSL caso ele não esteja, utilizando o Pow
 ```
 wsl --update
 ```
-![image](https://github.com/user-attachments/assets/1b6e73c9-23a3-489a-b099-f974fa7f2805)
+# Meu Projeto
+
+<div align="center">
+    <img src="images/wsl.png" alt="WSL" width="500"/>
+</div>
+
 
 
