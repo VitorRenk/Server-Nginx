@@ -18,9 +18,11 @@ WSL é uma ferramenta do Windows que permite executar binários e scripts em Lin
 
 Para conseguir utilizar o WSL, é necessário atualizar o kernel do Linux para WSL com o seguinte pacote:
 https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
-Após isso, é importante atualizar o wsl caso ele não esteja, utilizando o PowerShell, com o seguinte comando:
+
+Após isso, é importante atualizar o WSL caso ele não esteja, utilizando o PowerShell, com o seguinte comando:
 ```
 wsl --update
 ```
+![image](https://github.com/user-attachments/assets/1b6e73c9-23a3-489a-b099-f974fa7f2805)
 
 
