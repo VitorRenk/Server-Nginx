@@ -31,6 +31,7 @@ Com isso, podemos abrir o Ubuntu para iniciar o desenvolvimento na ferramenta WS
 
 ![user](https://github.com/user-attachments/assets/a1e8c8cd-aef8-4069-b18a-18e875fa92fe)
 
+---
 ## 2- Configuração do Ambiente Linux
 
 Após o cadastro de usuário, conseguimos adentrar o ambiente e começar os trabalhos.
@@ -55,6 +56,7 @@ sudo su
 ```
 Para o usuário ter os privilégios de super user e também ter acesso ao root.
 
+---
 ## 3- Nginx
 
 Para instalar o Nginx é necessário digitar o seguinte comando:
@@ -75,6 +77,7 @@ Para isso é necessário entrar no arquivo /etc/nginx/sites-enabled/default e co
 
 Nela conferimos o diretório padrão para arquivos como html, mas para a criação de um script não é necessário, nesse caso podemos incluir em qualquer pasta como /home/usuario/scripts.
 
+---
 ## 4- Script em Shell script
 
 Para criar o script, deve-se designar o diretório, e então dentro dele o script:
@@ -96,7 +99,7 @@ LOGFILE_OFF="/home/vitor/logs/nginx_on.log" - define o local do arquivo que rece
 
 data_hora=$(date +"Data: %d/%m/%Y Hora: %H:%M:%S") - variável que contém as informações 'real time' de dia e hora.
 
-status=$(systemctl is-active nginx 2>&1) - variável que informa se o nginx está active ou inactive, retornando nulo para não mostrar a mensagem no terminal.
+status=$(systemctl is-active nginx 2>&1) - variável que informa se o nginx está active ou inactive, retornando a saída de erro para o mesmo lugar que a saída padrão, evitando a escrita no terminal ao executar o bash.
 
 if [ "$status" == "inactive" ]; then - condicional se a variável status retornar inactive, então a variável STATUS se torna offline e a variável CURRENT_LOG se torna a variável LOGFILE_OFF.
     STATUS=offline
@@ -128,6 +131,13 @@ ou
 systemctl start nginx
 ```
 
+Alteramos as permissões para o script funcionar corretamente com o comando:
+
+```
+chmod 755 /caminho/do/script/nginxScript.sh
+```
+As permissões foram atualizadas para leitura, escrita, execução / leitura e execução / leitura e execução. Para os seguintes usuário: Dono, grupo e outros. Respectivamente.
+
 Com a confirmação do status prosseguimos para executar o Nginx para o log online.
 
 ```
@@ -148,6 +158,74 @@ cat /caminho/do/log/nginxLog.log
 
 ![bash2](https://github.com/user-attachments/assets/0658cd6b-2206-44cf-b522-f666abf5416a)
 
+Prosseguindo para a automização a cada 5 minutos, foi utilizado o cron.
 
-    
+---
+#### Cron - é um programa que executa comandos ou scripts que são agendados por uma tabela chamada de Crontab. Os usuários que configuram e mantêm ambientes de software usam o cron para agendar trabalhos, também conhecidos como cron jobs, para serem executados periodicamente em horários, datas ou intervalos fixos.
+
+Para isso deve-se acessar o crontab com o comando:
+
+```
+crontab -e
+```
+
+E colocar a seguinte linha.
+
+*/5 * * * * /caminho/do/script/nginxScript.sh
+
+![image](https://github.com/user-attachments/assets/8d97adcb-954b-4380-a336-f3141f0a2b5d)
+
+Dessa forma conseguimos visualizar a executação automática do bash a cada 5 minutos do fuso horário local do computador.
+
+[IMAGEM]
+
+
+
+---
+
+## 5- Versionamento Git via SSH
+
+Para a próxima etapa, foi necessário instalar o Git na máquina para executar os comandos específicos.
+
+```
+apt-get update
+apt-get install git
+git config --global user.name "name"
+git config --global user.email email@domain.com
+```
+
+Os comandos git config servem para configurar o nome e o e-mail que o Git usará ao associar os commits que foram feitos. Isso é importante para que, ao versionar um projeto, as contribuições fiquem registradas corretamente com a sua identidade.
+
+Prosseguindo com o versionamento.
+
+```
+ssh-keygen -t ed25519 -C email@domain.com
+chmod 600 ~/.ssh/id_ed25519
+ssh-add ~/.ssh/id_ed25519
+```
+
+ssh-keygen: É o comando que cria um novo par de chaves SSH (uma chave pública e uma privada).
+-t ed25519: Especifica o tipo de chave a ser gerada.
+-C email@domain.com: Adiciona um comentário (nesse caso, seu e-mail) à chave gerada, o que ajuda a identificar chaves diferentes se você tiver mais de uma.
+
+chmod - Esse comando altera as permissões do arquivo da chave privada, garantindo que apenas o proprietário do arquivo (você) possa lê-lo e modificá-lo.
+
+ssh-add - Esse comando adiciona a chave privada ao agente SSH, que é um processo que mantém suas chaves privadas em memória e facilita o uso de SSH sem precisar digitar a senha toda vez que usar a chave.
+
+Depois disso foi necessário conectar ao github para concluir o commit e push.
+
+```
+ssh -T git@github.com
+git clone git@github.com:User/project
+git init
+git add arquivo.extensão
+```
+
+ssh -T - Este comando testa a conexão SSH com o GitHub.
+
+git clone - Este comando clona um repositório Git hospedado no GitHub usando SSH.
+
+git init - Este comando inicializa um repositório Git em um diretório local.
+
+git add - Este comando adiciona arquivos ao "índice" (ou área de stage) no Git, preparando-os para o próximo commit.
 
