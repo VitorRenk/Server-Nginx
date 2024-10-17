@@ -68,12 +68,13 @@ Após a instalação, podemos verificar se ele está funcionando corretamente:
 
 ![image](https://github.com/user-attachments/assets/20f8186c-2dca-4981-bbf0-9f1a66b246e6)
 
+Partindo para a parte de configuração do Nginx, é importante conferir se o seu arquivo está devidamente configurado de acordo com a porta correta, pasta raíz dos arquivos e ordem de leitura.
+Para isso é necessário entrar no arquivo /etc/nginx/sites-enabled/default e conferir todas essas informações.
 
+![confignginx](https://github.com/user-attachments/assets/dac6d2cd-dc4c-430a-9c9f-54a1f15c34be)
 
+Nela conferimos o diretório padrão para arquivos como html, mas para a criação de um script não é necessário, nesse caso podemos incluir em qualquer pasta como /home/usuario/scripts.
 
-
-
-
-
+## 4- Script em Shell script
 
 
