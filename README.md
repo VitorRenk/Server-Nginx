@@ -87,7 +87,7 @@ com uma execução automatizada a cada 5 minutos, gerando dois arquivos de saíd
 
 ![image](https://github.com/user-attachments/assets/3c165235-cc32-4c0a-8bad-94baca317036)
 
-
+---
 #!/bin/bash - necessita-se começar o script dessa forma para indicar que é um script bash, sendo executado com o bash como interpretador padrão de linha de comando, ocasionando na prevenção de erros dependendo do shell utilizado.
 
 LOGFILE_ON="/home/vitor/logs/nginx_on.log" - define o local do arquivo que receberá as informações do servidor em modo online.
@@ -106,13 +106,19 @@ else                                 - senão, a variável STATUS se torna onlin
     STATUS=online
     CURRENT_LOG=$LOGFILE_ON
 
-fi - fim do bloco da condicional
+fi - fim do bloco da condicional.
 
 echo "$data_hora" >> $CURRENT_LOG - retorna a variável data_hora para o arquivo log online ou offline, dependendo da condição estabelecida.
+
 echo "Serviço: Nginx" >> $CURRENT_LOG - retorna a string para o arquivo log.
+
 echo "Status: $status" >> $CURRENT_LOG - retorna a string Status: com a variável status (active ou inactive) para o log.
+
 echo "O serviço está $STATUS no momento" >> $CURRENT_LOG - retorna a string com a variável informando se o serviço está online ou offline.
 
+echo "" >> $CURRENT_LOG - retorna uma quebra de linha.
+
+---
 
 
     
