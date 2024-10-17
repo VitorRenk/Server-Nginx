@@ -23,3 +23,5 @@ DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/0/bus
 MAIL=/var/mail/root
 _=/usr/bin/env
 OLDPWD=/home/vito
+
+*/5 * * * * /bin/bash /var/www/html/check_nginx.sh
