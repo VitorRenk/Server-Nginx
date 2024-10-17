@@ -57,6 +57,19 @@ Para o usuário ter os privilégios de super user e também ter acesso ao root.
 
 ## 3- Nginx
 
+Para instalar o Nginx é necessário digitar o seguinte comando:
+```
+apt-get install nginx
+```
+
+Após a instalação, podemos verificar se ele está funcionando corretamente:
+
+![image](https://github.com/user-attachments/assets/9d8ecf0c-6ed0-4878-b91e-101ebda22b46)
+
+![image](https://github.com/user-attachments/assets/20f8186c-2dca-4981-bbf0-9f1a66b246e6)
+
+
+
 
 
 
