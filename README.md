@@ -258,6 +258,7 @@ origin - Este é o nome padrão do repositório remoto. Quando você clona um re
 
 Dessa forma concluímos o versionamento.
 
+---
 ## 6- Bônus HTML
 
 Também é possível subir um arquivo HTML integrado com PHP para visualizar no localhost/arquivo.php na web a partir do seu ip eth0.
