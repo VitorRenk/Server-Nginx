@@ -175,10 +175,9 @@ E colocar a seguinte linha.
 
 ![image](https://github.com/user-attachments/assets/8d97adcb-954b-4380-a336-f3141f0a2b5d)
 
-Dessa forma conseguimos visualizar a executação automática do bash a cada 5 minutos do fuso horário local do computador.
+Dessa forma conseguimos visualizar a executação automática do bash a cada 5 minutos pelo fuso horário local do computador.
 
-[IMAGEM]
-
+![logon](https://github.com/user-attachments/assets/f8baaf22-9ed7-4be7-b9eb-7668156a7799)
 
 
 ---
@@ -228,4 +227,43 @@ git clone - Este comando clona um repositório Git hospedado no GitHub usando SS
 git init - Este comando inicializa um repositório Git em um diretório local.
 
 git add - Este comando adiciona arquivos ao "índice" (ou área de stage) no Git, preparando-os para o próximo commit.
+
+Alguns detalhes importantes antes de subir o projeto, devemos verificar qual o nome da branch que o git está utilizando no terminal com o comando:
+```
+git branch
+```
+
+Originalmente estava como master, se optar por utilizar a main para agilizar algumas etapas é necessário seguir essa linha de comando:
+```
+git checkout -b main
+```
+
+Agora utilizamos os seguintes comandos para verificar e configurar se o repositório git local está correto:
+```
+git remote -v
+git remote add origin git@github.com:nome_usuario/nome_repositório.git
+ou
+git remote set-url origin git@github.com:User/novo-repositorio.git
+```
+![origin](https://github.com/user-attachments/assets/05d9930b-67d0-45c3-990c-d9ff0365ed23)
+
+Depois disso tudo, conseguimos commitar e dar push para nosso repositório do github.
+```
+git commit -m “mensagem”
+git push -u origin main
+```
+
+-u - Ela configura o branch local para acompanhar o branch remoto que você está empurrando. Isso significa que, após usar git push -u, você pode usar comandos mais simples como git push e git pull sem precisar especificar o nome do repositório remoto e do branch, pois o Git saberá a qual branch remoto você está se referindo.
+
+origin - Este é o nome padrão do repositório remoto. Quando você clona um repositório, o Git cria automaticamente um repositório remoto chamado origin que aponta para o repositório original de onde você fez a clonagem.
+
+Dessa forma concluímos o versionamento.
+
+## 6- Bônus HTML
+
+Também é possível subir um arquivo HTML integrado com PHP para visualizar no localhost/arquivo.php na web a partir do seu ip eth0.
+
+![image](https://github.com/user-attachments/assets/cf24c4d3-668c-42bd-8f93-3c563e43ecee)
+
+![localhost](https://github.com/user-attachments/assets/50464ae5-ca89-4980-b847-172b81d66bc3)
 
