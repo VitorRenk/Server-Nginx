@@ -270,4 +270,3 @@ Também é possível subir um arquivo HTML integrado com PHP para visualizar no 
 
 ![localhost](https://github.com/user-attachments/assets/50464ae5-ca89-4980-b847-172b81d66bc3)
 
->>>>>>> c6cebb0625e5bc03399c51d0f09c169f7d12d946
