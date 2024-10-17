@@ -14,7 +14,7 @@ Primeiramente devemos ativar alguns recursos do Windows para que tudo funcione c
 Para conseguir utilizar o WSL, é necessário atualizar o kernel do Linux para WSL com o seguinte pacote:
 https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
 
-Depois disso é necessário reiniciar a máquina para aplicar essas alterações.
+Depois disso foi necessário reiniciar a máquina para aplicar essas alterações.
 
 Após isso, é importante atualizar o WSL caso ele não esteja, utilizando o PowerShell, com os seguintes comandos:
 ```
@@ -119,6 +119,34 @@ echo "O serviço está $STATUS no momento" >> $CURRENT_LOG - retorna a string co
 echo "" >> $CURRENT_LOG - retorna uma quebra de linha.
 
 ---
+
+Depois dessa etapa podemos verificar se o script está funcionando corretamente no terminal. Mas antes disso verificamos se o Nginx está ativo e funcionando corretamente com o seguinte comando:
+
+```
+systemctl status nginx
+ou
+systemctl start nginx
+```
+
+Com a confirmação do status prosseguimos para executar o Nginx para o log online.
+
+```
+bash /caminho/do/script/nginxScript.sh
+cat /caminho/do/log/nginxLog.log
+```
+
+![bash](https://github.com/user-attachments/assets/d2a855c3-a685-4969-bcb4-76ce282f34b6)
+
+Agora para o offline.
+
+```
+systemctl stop nginx
+systemctl status nginx
+bash /caminho/do/script/nginxScript.sh
+cat /caminho/do/log/nginxLog.log
+```
+
+![bash2](https://github.com/user-attachments/assets/0658cd6b-2206-44cf-b522-f666abf5416a)
 
 
     
