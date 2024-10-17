@@ -174,7 +174,7 @@ E colocar a seguinte linha.
 
 ![image](https://github.com/user-attachments/assets/8d97adcb-954b-4380-a336-f3141f0a2b5d)
 
-Dessa forma conseguimos visualizar a executação automática do bash a cada 5 minutos pelo fuso horário local do computador.
+Dessa forma conseguimos visualizar a execução automática do bash a cada 5 minutos pelo fuso horário local do computador.
 
 ![logon](https://github.com/user-attachments/assets/f8baaf22-9ed7-4be7-b9eb-7668156a7799)
 
