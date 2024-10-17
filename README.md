@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# Server-Nginx
-=======
-
 # Ferramenta WSL e Servidor Nginx
 
 ## 1- Instalação do Ubuntu e WSL
